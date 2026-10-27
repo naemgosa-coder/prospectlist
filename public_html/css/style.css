@@ -1,0 +1,499 @@
+/* =========================================
+   สไตล์สำหรับหน้า Login
+========================================= */
+.login-layout {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.login-card {
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(124, 92, 191, 0.2) !important;
+  background-color: #ffffff;
+}
+
+.login-card .card-header {
+  background: transparent;
+  border-bottom: none;
+  padding-top: 2.5rem !important;
+}
+
+/* =========================================
+   สไตล์ Navbar และ Dropdown แบบ Responsive
+========================================= */
+.navbar-pastel-new {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid #f2e2e7;
+  padding: 12px 10px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.dd-menu {
+  display: none;
+  background: #fff;
+  z-index: 40;
+}
+
+/* สำหรับจอคอม (Desktop) Dropdown จะลอยขึ้นมา (Absolute) */
+@media (min-width: 992px) {
+  .navbar-pastel-new { padding: 14px 30px; }
+  .dd-menu {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      border: 1px solid #f0dbe2;
+      border-radius: 14px;
+      box-shadow: 0 16px 40px rgba(120, 60, 80, 0.18);
+      padding: 6px;
+      min-width: 210px;
+  }
+}
+
+/* สำหรับจอมือถือ/แท็บเล็ต (Mobile) Dropdown จะดันเนื้อหาลง (Relative) */
+@media (max-width: 991.98px) {
+  .nav-pill { display: block; width: 100%; margin-bottom: 4px; }
+  .dd-menu {
+      position: relative;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: none;
+      border-left: 2px solid #f2e2e7;
+      border-radius: 0 14px 14px 0;
+      box-shadow: none;
+      padding: 5px 10px;
+      background: #fdfbfc;
+  }
+}
+
+/* =========================================
+   สไตล์ตาราง DataTables และคอมโพเนนต์ตามดีไซน์ใหม่ 
+========================================= */
+
+/* 1. ถอดกรอบออกจากกล่องที่ครอบ DataTables (ป้องกันกรอบซ้อนกัน) */
+.table-responsive:has(.dataTables_wrapper) {
+    border: none !important;
+}
+
+/* 2. สร้างกรอบโค้งมนสีชมพูอ่อน ให้เฉพาะส่วนที่เป็น "เนื้อหาตาราง" ตรงกลาง */
+.dataTables_wrapper .dt-row {
+    border: 1px solid #f4e6ec !important;
+    border-radius: 12px !important;
+    overflow: hidden !important; 
+    margin: 0 !important;
+}
+
+.dataTables_wrapper .dt-row .col-sm-12 {
+    padding: 0 !important;
+    overflow-x: auto;
+}
+
+/* 3. ดันแถวควบคุมด้านบน (ค้นหา, เลือกว่าจะแสดงกี่รายการ) ให้ออกห่างจากกรอบ */
+.dataTables_wrapper > .row:first-child {
+    margin: 0 0 14px 0 !important;
+    padding: 0 !important;
+    align-items: center;
+}
+
+/* 4. ดันแถวควบคุมด้านล่าง (ข้อมูลด้านซ้าย, ปุ่มเปลี่ยนหน้าด้านขวา) ให้ตรงกับดีไซน์ที่คุณต้องการ */
+.dataTables_wrapper > .row:last-child {
+    margin: 12px 0 0 0 !important;
+    padding: 0 4px !important;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ------------------------------------- */
+
+/* สไตล์พื้นฐานของตัวตาราง DataTables */
+table.dataTable {
+    border-collapse: separate !important;
+    border-spacing: 0;
+    width: 100% !important;
+    font-size: 12.5px;
+    color: #4a3b40;
+    margin: 0 !important;
+}
+
+table.dataTable thead th {
+    background: #faf0f4 !important;
+    color: #7a5d67 !important;
+    font-weight: 600 !important;
+    padding: 11px 13px !important;
+    border-bottom: 1px solid #f0d9e0 !important;
+    white-space: nowrap;
+}
+
+table.dataTable tbody td {
+    padding: 11px 13px !important;
+    border-top: 1px solid #f4ece2 !important;
+    vertical-align: top;
+    color: #4a3b40;
+}
+
+table.dataTable tbody tr:hover td {
+    background-color: #fcf6f8 !important;
+}
+
+/* เปลี่ยนสีข้อความด้านบน ("แสดง 10 รายการ", "ค้นหา") */
+.dataTables_wrapper .dataTables_length label,
+.dataTables_wrapper .dataTables_filter label {
+    color: #8a7078;
+    font-size: 12.5px;
+    font-weight: 500;
+}
+
+/* กล่องค้นหา */
+.dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #eddbe1;
+    border-radius: 8px;
+    padding: 5px 12px;
+    background: #fdfbfc;
+    color: #6b5760;
+    outline: none;
+    margin-left: 8px;
+}
+
+/* กล่องเลือกจำนวนรายการ */
+.dataTables_wrapper .dataTables_length select {
+    border: 1px solid #eddbe1;
+    border-radius: 8px;
+    padding: 4px 10px;
+    background: #fdfbfc;
+    margin: 0 5px;
+    color: #6b5760;
+}
+
+/* 🌟 จัดรูปแบบข้อความแสดงจำนวนรายการ (ด้านซ้ายล่าง) ให้เหมือนดีไซน์เป๊ะๆ 🌟 */
+.dataTables_wrapper .dataTables_info {
+    padding-top: 0 !important;
+    color: #9a828a !important;
+    font-size: 12px !important;
+    float: none !important;
+}
+
+/* 🌟 จัดรูปแบบปุ่มเปลี่ยนหน้า (ด้านขวาล่าง) ให้เป็นสไตล์พาสเทลโค้งมนตามโครงสร้างที่ส่งมา 🌟 */
+.dataTables_wrapper .dataTables_paginate {
+    margin-top: 0 !important;
+    float: none !important;
+    display: flex !important;
+    gap: 5px !important;
+    justify-content: flex-end;
+}
+
+/* บังคับซ่อนปุ่มข้อความเดิมของ DataTable แล้วแปลงร่างให้เป็นสไตล์กล่อง */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 5px 11px !important;
+    border-radius: 8px !important;
+    border: 1px solid #eddbe1 !important;
+    background: #fff !important;
+    color: #8a7078 !important;
+    cursor: pointer;
+    font-size: 12px !important;
+    box-shadow: none !important;
+    margin-left: 0 !important;
+}
+
+/* หน้าปัจจุบันที่กำลังเลือก (เปลี่ยนเป็นสีชมพูพาสเทล) */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background: #c1466a !important;
+    color: #fff !important;
+    border-color: #c1466a !important;
+}
+
+/* เอฟเฟกต์ตอนเอาเมาส์ชี้ปุ่ม */
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover:not(.current):not(.disabled) {
+    background: #fbe4ea !important;
+    color: #c1466a !important;
+    border-color: #f4c9d5 !important;
+}
+
+/* ปุ่มเมื่อกดไม่ได้ (Disabled เช่น ก่อนหน้า/ถัดไป หน้าแรกสุดหรือท้ายสุด) */
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover {
+    background: #fdfbfc !important;
+    color: #c3b3ba !important;
+    border-color: #f4e6ec !important;
+    cursor: not-allowed !important;
+    opacity: 0.7;
+}
+
+/* ปุ่มไอคอน จัดการ (Edit, Delete ฯลฯ) ดีไซน์พาสเทล */
+.btn-icon-soft {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.15s;
+    font-size: 13px;
+    padding: 0;
+    text-decoration: none;
+}
+
+.btn-icon-soft:hover {
+    transform: translateY(-2px);
+}
+
+.btn-icon-warning { background: #fdf3e0; color: #c98a1e; }
+.btn-icon-danger { background: #fbe4ea; color: #c1466a; }
+.btn-icon-success { background: #e3f4ea; color: #2fa572; }
+.btn-icon-info { background: #e6eefc; color: #3a63aa; }
+.btn-icon-secondary { background: #f0ece7; color: #8a7a70; }
+
+/* Badge สถานะงานและบทบาท */
+.badge-soft-primary { background: #e6eefc; color: #3a63aa; padding: 4px 9px; border-radius: 8px; font-weight: 600; font-size: 11px; }
+.badge-soft-danger { background: #fbe4ea; color: #c1466a; padding: 4px 9px; border-radius: 8px; font-weight: 600; font-size: 11px; }
+.badge-soft-success { background: #e3f4ea; color: #2fa572; padding: 4px 9px; border-radius: 8px; font-weight: 600; font-size: 11px; }
+.badge-soft-warning { background: #fdf3e0; color: #c98a1e; padding: 4px 9px; border-radius: 8px; font-weight: 600; font-size: 11px; }
+
+/* ===== Status Badge ===== */
+
+.bg-pastel-warning{
+    background:#fdf3e0 !important;
+    color:#b87400 !important;
+    border:1px solid #f2c66d !important;
+}
+
+.bg-pastel-primary{
+    background:#e6eefc !important;
+    color:#2f62c9 !important;
+    border:1px solid #9dbcf7 !important;
+}
+
+.bg-pastel-success{
+    background:#e3f4ea !important;
+    color:#238c5c !important;
+    border:1px solid #8fd2ad !important;
+}
+
+.bg-pastel-danger{
+    background:#fbe4ea !important;
+    color:#c1466a !important;
+    border:1px solid #efadc0 !important;
+}
+
+/* =========================================
+   Responsive Design (หน้าจอมือถือ & แท็บเล็ต)
+========================================= */
+@media (max-width: 768px) {
+  .login-card .card-body { padding: 1.5rem !important; }
+  
+  #dashboardFilterForm .form-select, 
+  #dashboardFilterForm .form-control,
+  #reportFilterForm .form-select, 
+  #reportFilterForm .form-control {
+      width: 100% !important;
+      max-width: none !important;
+      margin-bottom: 5px;
+  }
+  
+  #dashboardFilterForm button,
+  #reportFilterForm button {
+      width: 100%;
+  }
+
+  .page-header {
+      flex-direction: column;
+      align-items: flex-start !important;
+      gap: 12px;
+  }
+}
+
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* =========================================
+   ธีมพื้นหลัง Pastel (ใช้งานครอบคลุมทุกหน้า)
+========================================= */
+body.bg-pastel-theme {
+  background: linear-gradient(160deg, #fdf3f7 0%, #f6eefb 45%, #fdf3f7 100%);
+  font-family: 'DM Sans', 'Prompt', sans-serif;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* ===== วงกลม Pastel Blobs (อยู่หลังสุดและเคลื่อนไหว) ===== */
+.bg-blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.55;
+  z-index: -1; 
+  pointer-events: none;
+  animation: floatBlob 14s ease-in-out infinite;
+}
+.bg-blob.b1 { width: 420px; height: 420px; background: #f8bbd0; top: -120px; left: -100px; animation-delay: 0s; }
+.bg-blob.b2 { width: 380px; height: 380px; background: #b5c8f8; bottom: -140px; right: -100px; animation-delay: 3s; }
+.bg-blob.b3 { width: 300px; height: 300px; background: #c8f7e4; top: 40%; left: 60%; animation-delay: 6s; }
+.bg-blob.b4 { width: 260px; height: 260px; background: #e0c3fc; bottom: 10%; left: 5%; animation-delay: 9s; }
+
+@keyframes floatBlob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25%      { transform: translate(40px, -30px) scale(1.08); }
+  50%      { transform: translate(-20px, 30px) scale(0.95); }
+  75%      { transform: translate(25px, 20px) scale(1.04); }
+}
+
+/* ===== กล่อง Login (Scene) ===== */
+.scene {
+  width: 820px;
+  min-height: 520px;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  box-shadow: 0 12px 40px rgba(120, 100, 180, 0.18);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease-out;
+  margin: 0 auto;
+}
+
+/* ===== ฝั่งซ้าย (Branding) ===== */
+.left-panel {
+  flex: 1;
+  background: linear-gradient(160deg, #b5c8f8 0%, #d4b8f0 50%, #f8b8d8 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  min-width: 220px;
+}
+.blob { position: absolute; border-radius: 50%; opacity: 0.3; pointer-events: none; }
+.blob1 { width: 180px; height: 180px; background: #fff; top: -50px; left: -50px; }
+.blob2 { width: 120px; height: 120px; background: #fff; bottom: 20px; right: -30px; }
+.blob3 { width: 70px;  height: 70px;  background: #f8b8d8; top: 55%; left: 10%; }
+
+.brand-icon {
+  width: 64px; height: 64px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.25rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  position: relative; z-index: 1;
+}
+.brand-icon svg { width: 28px; height: 28px; color: #7c5cbf; }
+.brand-name { font-size: 20px; font-weight: 600; color: #4a3a7a; position: relative; z-index: 1; margin-bottom: 8px; }
+.brand-tagline { font-size: 13px; color: rgba(74, 58, 122, 0.7); text-align: center; position: relative; z-index: 1; line-height: 1.5; max-width: 160px; }
+
+.dots-deco { display: flex; gap: 8px; margin-top: 2rem; position: relative; z-index: 1; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.5); }
+.dot.active { background: #fff; width: 22px; border-radius: 4px; }
+
+/* ===== ฝั่งขวา (ฟอร์ม Login) ===== */
+.right-panel {
+  flex: 1.2;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem 2.5rem;
+}
+.form-title { font-size: 22px; font-weight: 600; color: #2d2150; margin-bottom: 4px; text-align: center; }
+.form-sub { font-size: 13px; color: #9b90b8; margin-bottom: 1.5rem; text-align: center; }
+
+.field-label { display: block; font-size: 12px; font-weight: 500; color: #b0a8cc; letter-spacing: 0.05em; margin-bottom: 5px; }
+.field-wrap { position: relative; margin-bottom: 1.2rem; }
+.field-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: #c4bade; pointer-events: none; }
+.field-input {
+  width: 100%;
+  padding: 10px 12px 10px 36px;
+  border: 1.5px solid #e8e3f5;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #2d2150;
+  font-family: 'DM Sans', 'Prompt', sans-serif;
+  background: #faf9ff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.field-input:focus { border-color: #b5a8e8; background: #fff; box-shadow: 0 0 0 3px rgba(181, 168, 232, 0.18); }
+.field-input::placeholder { color: #cdc8e8; }
+
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #c1466a;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'DM Sans', 'Prompt', sans-serif;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.btn-login:hover { 
+  background: #9c2f50;
+  transform: translateY(-1px); 
+  box-shadow: 0 6px 15px rgba(193, 70, 106, 0.25);
+}
+.btn-login:active { 
+  transform: scale(0.98); 
+}
+
+.alert-error {
+  background: #fff0f3;
+  border: 1.5px solid #f8b8c8;
+  color: #c0405a;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  margin-bottom: 1rem;
+}
+
+/* ===== Responsive บนมือถือ (Login) ===== */
+@media (max-width: 768px) {
+  .scene { flex-direction: column; width: 100%; min-height: unset; border-radius: 16px; }
+  .left-panel { padding: 1.5rem; min-height: 160px; }
+  .brand-tagline { display: none; }
+  .dots-deco { margin-top: 1rem; }
+  .right-panel { padding: 2rem 1.5rem; }
+}
+
+/* =========================================
+   🌟 ปรับแต่งการแสดงผลสำหรับหน้าจอใหญ่ (Desktop) ให้ไม่กว้างหรือห่างเกินไป 🌟
+========================================= */
+@media (min-width: 1200px) {
+    /* ขยายความกว้างสูงสุดของพื้นที่เนื้อหาหลักให้เต็มตาขึ้น */
+    div[style*="max-width:1300px"] {
+        max-width: 95% !important;
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+    }
+}
+
+@media (min-width: 1600px) {
+    /* สำหรับจอคอมขนาดใหญ่พิเศษ (Ultra-wide) */
+    div[style*="max-width:1300px"] {
+        max-width: 92% !important;
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+}
+
+/* ลดช่องไฟ (Padding) ของการ์ดหลักบนจอคอมให้ดูแน่นและกระชับขึ้น ไม่โล่งจนเกินไป */
+@media (min-width: 992px) {
+    div[style*="background:#fff;border-radius:18px"] {
+        padding: 24px 28px !important;
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "name": "marthag/prospectlist",
+    "description": "Prospect list CRM",
+    "type": "project",
+    "require": {
+        "php": "^8.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
